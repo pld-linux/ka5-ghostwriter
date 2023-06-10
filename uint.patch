@@ -1,0 +1,11 @@
+diff -up ghostwriter-23.04.2/src/markdownnode.cpp.dd ghostwriter-23.04.2/src/markdownnode.cpp
+--- ghostwriter-23.04.2/src/markdownnode.cpp.dd	2023-06-06 05:26:47.000000000 +0200
++++ ghostwriter-23.04.2/src/markdownnode.cpp	2023-06-10 12:01:11.845542522 +0200
+@@ -3,6 +3,7 @@
+  *
+  * SPDX-License-Identifier: GPL-3.0-or-later
+  */
++#include <cstdint>
+ 
+ #include "../3rdparty/cmark-gfm/src/cmark-gfm.h"
+ #include "../3rdparty/cmark-gfm/extensions/cmark-gfm-core-extensions.h"
