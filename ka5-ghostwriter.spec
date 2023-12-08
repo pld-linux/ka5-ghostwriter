@@ -1,15 +1,15 @@
-%define		kdeappsver	23.08.3
+%define		kdeappsver	23.08.4
 %define		qtver		5.15.2
 %define		kaname		ghostwriter
 
 Summary:	Text editor for Markdown
 Name:		ka5-%{kaname}
-Version:	23.08.3
+Version:	23.08.4
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Editors
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	802194d30661e49fded510347762ed5e
+# Source0-md5:	31ce8c78db05e71d6e80e484b83f6d27
 URL:		https://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= 5.15.2
