@@ -1,38 +1,38 @@
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		qtver		5.15.2
 %define		kaname		ghostwriter
 
 Summary:	Text editor for Markdown
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v3+
 Group:		X11/Applications/Editors
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	31ce8c78db05e71d6e80e484b83f6d27
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	2649238ef497a28798e3560bb43fabac
 URL:		https://www.kde.org/
-BuildRequires:	Qt5Concurrent-devel
-BuildRequires:	Qt5Core-devel >= 5.15.2
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Network-devel >= 5.15.9
-BuildRequires:	Qt5Positioning-devel >= 5.15
-BuildRequires:	Qt5PrintSupport-devel >= 5.15
-BuildRequires:	Qt5Qml-devel >= 5.15.9
-BuildRequires:	Qt5Qml-devel >= 5.15.9
-BuildRequires:	Qt5Quick-devel >= 5.15
-BuildRequires:	Qt5Svg-devel
-BuildRequires:	Qt5WebChannel-devel
-BuildRequires:	Qt5WebEngine-devel >= 5.15
-BuildRequires:	Qt5Widgets-devel >= 5.15.2
-BuildRequires:	kf5-extra-cmake-modules >= 5.90
-BuildRequires:	kf5-kconfigwidgets-devel >= 5.90
-BuildRequires:	kf5-kcoreaddons-devel >= 5.105.0
-BuildRequires:	kf5-kwidgetsaddons-devel >= 5.90
-BuildRequires:	kf5-kxmlgui-devel >= 5.90
-BuildRequires:	kf5-sonnet-devel >= 5.90
+BuildRequires:	Qt6Concurrent-devel
+BuildRequires:	Qt6Core-devel >= 5.15.2
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Network-devel >= 5.15.9
+BuildRequires:	Qt6Positioning-devel >= 5.15
+BuildRequires:	Qt6PrintSupport-devel >= 5.15
+BuildRequires:	Qt6Qml-devel >= 5.15.9
+BuildRequires:	Qt6Qml-devel >= 5.15.9
+BuildRequires:	Qt6Quick-devel >= 5.15
+BuildRequires:	Qt6Svg-devel
+BuildRequires:	Qt6WebChannel-devel
+BuildRequires:	Qt6WebEngine-devel >= 5.15
+BuildRequires:	Qt6Widgets-devel >= 5.15.2
+BuildRequires:	kf6-extra-cmake-modules >= 5.90
+BuildRequires:	kf6-kconfigwidgets-devel >= 5.90
+BuildRequires:	kf6-kcoreaddons-devel >= 5.105.0
+BuildRequires:	kf6-kwidgetsaddons-devel >= 5.90
+BuildRequires:	kf6-kxmlgui-devel >= 5.90
+BuildRequires:	kf6-sonnet-devel >= 5.90
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
-BuildRequires:	qt5-linguist
+BuildRequires:	qt6-linguist
 BuildRequires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +54,8 @@ site](https://ghostwriter.kde.org).
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DQT_MAJOR_VERSION=6
 %ninja_build -C build
 
 %{?with_tests:%ninja_build -C build test}
@@ -72,12 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ghostwriter
 %{_desktopdir}/org.kde.ghostwriter.desktop
-%{_iconsdir}/hicolor/128x128/apps/ghostwriter.png
-%{_iconsdir}/hicolor/16x16/apps/ghostwriter.png
-%{_iconsdir}/hicolor/22x22/apps/ghostwriter.png
-%{_iconsdir}/hicolor/256x256/apps/ghostwriter.png
-%{_iconsdir}/hicolor/32x32/apps/ghostwriter.png
-%{_iconsdir}/hicolor/64x64/apps/ghostwriter.png
+%{_iconsdir}/hicolor/*x*/apps/ghostwriter.png
 %{_iconsdir}/hicolor/scalable/apps/ghostwriter.svg
 %lang(ca) %{_mandir}/ca/man1/ghostwriter.1*
 %lang(es) %{_mandir}/es/man1/ghostwriter.1*
